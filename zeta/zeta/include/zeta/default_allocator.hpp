@@ -22,78 +22,39 @@
 //// SOFTWARE.
 //
 
-#ifndef ZETA_DATA_HPP
-#	define ZETA_DATA_HPP
+#ifndef ZETA_DEFAULT_ALLOCATOR_HPP
+#	define ZETA_DEFAULT_ALLOCATOR_HPP
 
+#include <cstdlib>
 #include <cstddef>
-#include <utility>
+#include "data.hpp"
 
 namespace zeta
 {
-	class data
+	class default_allocator
 	{
 		public:
-			void* ptr;
-			std::size_t size;
-
-		public:
-			data()
-				: ptr {nullptr}, size {0}
+			data allocate(std::size_t size)
 			{
-				//
+				if(size == 0)
+					return {};
+
+				void* ptr = malloc(size);
+				if(ptr == nullptr)
+					return {};
+
+				return {ptr, size};
 			}
 
-			data(void* ptr, std::size_t size)
-				: ptr {ptr}, size {size}
+			void deallocate(data& d)
 			{
-				//
+				if(d)
+				{
+					free(d.ptr);
+					d.clear();
+				}
 			}
 
-			data(const data& d)
-				: ptr {d.ptr}, size {d.size}
-			{
-				//
-			}
-
-			data(data&& d)
-			{
-				*this = std::move(d);
-			}
-
-		public:
-			void clear()
-			{
-				this->ptr = nullptr;
-				this->size = 0;
-			}
-
-		public:
-			data& operator=(const data& d) = default;
-
-			data& operator=(data&& d)
-			{
-				this->ptr = d.ptr;
-				this->size = d.size;
-
-				d.clear();
-				return *this;
-			}
-
-			bool operator==(const data& rhs) const
-			{
-				return this->ptr == rhs.ptr
-					&& this->size == rhs.size;
-			}
-
-			bool operator!=(const data& rhs) const
-			{
-				return !(*this == rhs);
-			}
-
-			explicit operator bool() const
-			{
-				return this->ptr != nullptr;
-			}
 	};
 }
 

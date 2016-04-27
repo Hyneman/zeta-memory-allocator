@@ -45,13 +45,13 @@ TEST(ZetaDataTest, CTorValue)
 	EXPECT_EQ(d.size, size);
 }
 
-TEST(ZetaDataTest, Reset)
+TEST(ZetaDataTest, Clear)
 {
 	void* address = reinterpret_cast<void*>(123456789);
 	std::size_t size = 987654321;
 
 	zeta::data d {address, size};
-	d.reset();
+	d.clear();
 
 	EXPECT_EQ(d.ptr, nullptr);
 	EXPECT_EQ(d.size, 0);

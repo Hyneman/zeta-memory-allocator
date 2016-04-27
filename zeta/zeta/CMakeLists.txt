@@ -27,7 +27,7 @@ project(zeta)
 
 add_definitions(-std=c++11)
 
-set(HEADER_FILES include/zeta/data.hpp)
+set(HEADER_FILES include/zeta/data.hpp include/zeta/default_allocator.hpp)
 
 add_library(zeta STATIC ${HEADER_FILES})
 set_target_properties(zeta PROPERTIES LINKER_LANGUAGE CXX)
