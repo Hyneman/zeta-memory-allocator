@@ -25,46 +25,41 @@
 #include <cstddef>
 #include <gtest/gtest.h>
 #include <zeta/data.hpp>
-#include <zeta/default_allocator.hpp>
+#include <zeta/null_allocator.hpp>
 
-TEST(ZetaDefaultAllocatorTest, Allocate)
+TEST(ZetaNullAllocatorTest, Allocate)
 {
-	std::size_t size = 1024;
-	zeta::default_allocator da;
+	zeta::null_allocator na;
 
-	auto d = da.allocate(size);
+	auto d = na.allocate(1024);
 
-	EXPECT_NE(d.ptr, nullptr);
-	EXPECT_EQ(d.size, size);
-
-	da.deallocate(d);
+	EXPECT_EQ(d.ptr, nullptr);
+	EXPECT_EQ(d.size, 0);
 }
 
-TEST(ZetaDefaultAllocatorTest, AllocateNull)
+TEST(ZetaNullAllocatorTest, Deallocate)
 {
-	std::size_t size = 0;
-	zeta::default_allocator da;
+	zeta::null_allocator na;
 
-	auto d = da.allocate(size);
+	auto d = na.allocate(0);
 
 	EXPECT_EQ(d.ptr, nullptr);
 	EXPECT_EQ(d.size, 0);
 
-	da.deallocate(d);
-}
-
-TEST(ZetaDefaultAllocatorTest, Deallocate)
-{
-	std::size_t size = 1024;
-	zeta::default_allocator da;
-
-	auto d = da.allocate(size);
-
-	EXPECT_NE(d.ptr, nullptr);
-	EXPECT_EQ(d.size, size);
-
-	da.deallocate(d);
+	na.deallocate(d);
 
 	EXPECT_EQ(d.ptr, nullptr);
 	EXPECT_EQ(d.size, 0);
+}
+
+TEST(ZetaNullAllocatorTest, Owns)
+{
+	zeta::null_allocator na;
+
+	auto d = na.allocate(0);
+
+	EXPECT_TRUE(na.owns(d));
+	EXPECT_TRUE(na.owns(zeta::data{}));
+
+	na.deallocate(d);
 }

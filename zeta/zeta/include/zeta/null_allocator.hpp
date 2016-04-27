@@ -22,49 +22,35 @@
 //// SOFTWARE.
 //
 
+#ifndef ZETA_NULL_ALLOCATOR_HPP
+#	define ZETA_NULL_ALLOCATOR_HPP
+
+#include <cstdlib>
 #include <cstddef>
-#include <gtest/gtest.h>
-#include <zeta/data.hpp>
-#include <zeta/default_allocator.hpp>
+#include <cassert>
 
-TEST(ZetaDefaultAllocatorTest, Allocate)
+#include "data.hpp"
+
+namespace zeta
 {
-	std::size_t size = 1024;
-	zeta::default_allocator da;
+	class null_allocator
+	{
+		public:
+			data allocate(std::size_t size) const
+			{
+				return {nullptr, 0};
+			}
 
-	auto d = da.allocate(size);
+			void deallocate(data d) const
+			{
+				assert(!d);
+			}
 
-	EXPECT_NE(d.ptr, nullptr);
-	EXPECT_EQ(d.size, size);
-
-	da.deallocate(d);
+			bool owns(const data& d) const
+			{
+				return !d;
+			}
+	};
 }
 
-TEST(ZetaDefaultAllocatorTest, AllocateNull)
-{
-	std::size_t size = 0;
-	zeta::default_allocator da;
-
-	auto d = da.allocate(size);
-
-	EXPECT_EQ(d.ptr, nullptr);
-	EXPECT_EQ(d.size, 0);
-
-	da.deallocate(d);
-}
-
-TEST(ZetaDefaultAllocatorTest, Deallocate)
-{
-	std::size_t size = 1024;
-	zeta::default_allocator da;
-
-	auto d = da.allocate(size);
-
-	EXPECT_NE(d.ptr, nullptr);
-	EXPECT_EQ(d.size, size);
-
-	da.deallocate(d);
-
-	EXPECT_EQ(d.ptr, nullptr);
-	EXPECT_EQ(d.size, 0);
-}
+#endif
