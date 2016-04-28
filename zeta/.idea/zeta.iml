@@ -22,6 +22,7 @@
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/memory.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/singleton_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/default_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/fallback_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/stack_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/defaults.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/CMakeLists.txt" isTestSource="false" />
