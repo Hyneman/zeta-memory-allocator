@@ -22,19 +22,10 @@
 ## SOFTWARE.
 ##
 
-cmake_minimum_required(VERSION 3.5)
-project(zeta)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
-add_definitions(-std=c++11)
+add_executable(zeta_run_composition_tests
+        zeta_singleton_allocator_test.cpp)
 
-set(HEADER_FILES
-        include/zeta/defaults.hpp
-        include/zeta/data.hpp
-        include/zeta/default_allocator.hpp
-        include/zeta/null_allocator.hpp
-        include/zeta/stack_allocator.hpp
-        include/zeta/memory.hpp
-        include/zeta/singleton_allocator.hpp)
-
-add_library(zeta STATIC ${HEADER_FILES})
-set_target_properties(zeta PROPERTIES LINKER_LANGUAGE CXX)
+target_link_libraries(zeta_run_composition_tests gtest gtest_main)
+target_link_libraries(zeta_run_composition_tests zeta)

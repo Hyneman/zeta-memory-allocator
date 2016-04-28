@@ -33,4 +33,3 @@ add_executable(zeta_run_general_tests
 
 target_link_libraries(zeta_run_general_tests gtest gtest_main)
 target_link_libraries(zeta_run_general_tests zeta)
-
