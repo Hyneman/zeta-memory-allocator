@@ -29,7 +29,8 @@ add_executable(zeta_run_general_tests
         zeta_default_allocator_test.cpp
         zeta_null_allocator_test.cpp
         zeta_stack_allocator_test.cpp
-        zeta_memory_test.cpp)
+        zeta_memory_test.cpp
+        zeta_throw_allocator.cpp)
 
 target_link_libraries(zeta_run_general_tests gtest gtest_main)
 target_link_libraries(zeta_run_general_tests zeta)

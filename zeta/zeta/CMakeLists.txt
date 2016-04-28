@@ -35,7 +35,9 @@ set(HEADER_FILES
         include/zeta/stack_allocator.hpp
         include/zeta/memory.hpp
         include/zeta/singleton_allocator.hpp
-        include/zeta/fallback_allocator.hpp)
+        include/zeta/fallback_allocator.hpp
+        include/zeta/throw_allocator.hpp
+        include/zeta/allocation_exception.hpp)
 
 add_library(zeta STATIC ${HEADER_FILES})
 set_target_properties(zeta PROPERTIES LINKER_LANGUAGE CXX)
