@@ -45,6 +45,18 @@ TEST(ZetaDataTest, CTorValue)
 	EXPECT_EQ(d.size, size);
 }
 
+TEST(ZetaDataTest, Valid)
+{
+	EXPECT_FALSE((zeta::data{nullptr, 0}).valid());
+	EXPECT_TRUE((zeta::data{reinterpret_cast<void*>(123456789), 128}).valid());
+}
+
+TEST(ZetaDataTest, Null)
+{
+	EXPECT_TRUE((zeta::data{nullptr, 0}).null());
+	EXPECT_FALSE((zeta::data{reinterpret_cast<void*>(123456789), 128}).null());
+}
+
 TEST(ZetaDataTest, Clear)
 {
 	void* address = reinterpret_cast<void*>(123456789);

@@ -22,89 +22,15 @@
 //// SOFTWARE.
 //
 
-#ifndef ZETA_DATA_HPP
-#	define ZETA_DATA_HPP
-
 #include <cstddef>
-#include <utility>
+#include <gtest/gtest.h>
+#include <zeta/memory.hpp>
 
-namespace zeta
+TEST(ZetaMemoryTest, Align)
 {
-	class data
-	{
-		public:
-			void* ptr;
-			std::size_t size;
-
-		public:
-			data()
-				: ptr {nullptr}, size {0}
-			{
-				//
-			}
-
-			data(void* ptr, std::size_t size)
-				: ptr {ptr}, size {size}
-			{
-				//
-			}
-
-			data(const data& d)
-				: ptr {d.ptr}, size {d.size}
-			{
-				//
-			}
-
-			data(data&& d)
-			{
-				*this = std::move(d);
-			}
-
-		public:
-			bool valid() const
-			{
-				return !this->null();
-			}
-
-			bool null() const
-			{
-				return this->ptr == nullptr;
-			}
-
-			void clear()
-			{
-				this->ptr = nullptr;
-				this->size = 0;
-			}
-
-		public:
-			data& operator=(const data& d) = default;
-
-			data& operator=(data&& d)
-			{
-				this->ptr = d.ptr;
-				this->size = d.size;
-
-				d.clear();
-				return *this;
-			}
-
-			bool operator==(const data& rhs) const
-			{
-				return this->ptr == rhs.ptr
-					&& this->size == rhs.size;
-			}
-
-			bool operator!=(const data& rhs) const
-			{
-				return !(*this == rhs);
-			}
-
-			explicit operator bool() const
-			{
-				return this->valid();
-			}
-	};
+	EXPECT_EQ(zeta::memory::align(1, 12), 12);
+	EXPECT_EQ(zeta::memory::align(8, 60), 64);
+	EXPECT_EQ(zeta::memory::align(8, 100), 104);
+	EXPECT_EQ(zeta::memory::align(16, 1024), 1024);
+	EXPECT_EQ(zeta::memory::align(128, 99999), 100096);
 }
-
-#endif

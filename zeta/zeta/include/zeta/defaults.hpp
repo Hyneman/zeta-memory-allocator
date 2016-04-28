@@ -22,89 +22,12 @@
 //// SOFTWARE.
 //
 
-#ifndef ZETA_DATA_HPP
-#	define ZETA_DATA_HPP
-
-#include <cstddef>
-#include <utility>
+#ifndef ZETA_ZETA_DEFAULTS_HPP
+#	define ZETA_ZETA_DEFAULTS_HPP
 
 namespace zeta
 {
-	class data
-	{
-		public:
-			void* ptr;
-			std::size_t size;
-
-		public:
-			data()
-				: ptr {nullptr}, size {0}
-			{
-				//
-			}
-
-			data(void* ptr, std::size_t size)
-				: ptr {ptr}, size {size}
-			{
-				//
-			}
-
-			data(const data& d)
-				: ptr {d.ptr}, size {d.size}
-			{
-				//
-			}
-
-			data(data&& d)
-			{
-				*this = std::move(d);
-			}
-
-		public:
-			bool valid() const
-			{
-				return !this->null();
-			}
-
-			bool null() const
-			{
-				return this->ptr == nullptr;
-			}
-
-			void clear()
-			{
-				this->ptr = nullptr;
-				this->size = 0;
-			}
-
-		public:
-			data& operator=(const data& d) = default;
-
-			data& operator=(data&& d)
-			{
-				this->ptr = d.ptr;
-				this->size = d.size;
-
-				d.clear();
-				return *this;
-			}
-
-			bool operator==(const data& rhs) const
-			{
-				return this->ptr == rhs.ptr
-					&& this->size == rhs.size;
-			}
-
-			bool operator!=(const data& rhs) const
-			{
-				return !(*this == rhs);
-			}
-
-			explicit operator bool() const
-			{
-				return this->valid();
-			}
-	};
+	constexpr std::size_t default_alignment = sizeof(std::size_t);
 }
 
 #endif

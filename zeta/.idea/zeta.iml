@@ -7,15 +7,20 @@
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/lib/gtest-1.7.0/src/gtest-all.cc" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/lib/gtest-1.7.0/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/lib/gtest-1.7.0/cmake/internal_utils.cmake" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_null_allocator_test.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_default_allocator_test.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_data_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/CMakeLists.txt" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_memory_test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_default_allocator_test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_stack_allocator_test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_null_allocator_test.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta_tests/general_tests/zeta_data_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/default_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/data.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/null_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/memory.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/default_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/stack_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/defaults.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/CMakeLists.txt" isTestSource="false" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />

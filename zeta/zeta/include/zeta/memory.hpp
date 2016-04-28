@@ -22,89 +22,28 @@
 //// SOFTWARE.
 //
 
-#ifndef ZETA_DATA_HPP
-#	define ZETA_DATA_HPP
+#ifndef ZETA_MEMORY_HPP
+#	define ZETA_MEMORY_HPP
 
 #include <cstddef>
-#include <utility>
 
 namespace zeta
 {
-	class data
+	namespace memory
 	{
-		public:
-			void* ptr;
-			std::size_t size;
+		inline constexpr std::size_t align(std::size_t alignment, std::size_t size)
+		{
+//			"Extensive Version" for C++14.
+//			std::size_t mod = size % alignment;
+//			if(mod == 0)
+//				return size;
+//			else
+//				return size + (alignment - mod);
 
-		public:
-			data()
-				: ptr {nullptr}, size {0}
-			{
-				//
-			}
-
-			data(void* ptr, std::size_t size)
-				: ptr {ptr}, size {size}
-			{
-				//
-			}
-
-			data(const data& d)
-				: ptr {d.ptr}, size {d.size}
-			{
-				//
-			}
-
-			data(data&& d)
-			{
-				*this = std::move(d);
-			}
-
-		public:
-			bool valid() const
-			{
-				return !this->null();
-			}
-
-			bool null() const
-			{
-				return this->ptr == nullptr;
-			}
-
-			void clear()
-			{
-				this->ptr = nullptr;
-				this->size = 0;
-			}
-
-		public:
-			data& operator=(const data& d) = default;
-
-			data& operator=(data&& d)
-			{
-				this->ptr = d.ptr;
-				this->size = d.size;
-
-				d.clear();
-				return *this;
-			}
-
-			bool operator==(const data& rhs) const
-			{
-				return this->ptr == rhs.ptr
-					&& this->size == rhs.size;
-			}
-
-			bool operator!=(const data& rhs) const
-			{
-				return !(*this == rhs);
-			}
-
-			explicit operator bool() const
-			{
-				return this->valid();
-			}
-	};
+			return size + ((size % alignment == 0)
+				? 0 : (alignment - (size % alignment)));
+		}
+	}
 }
 
 #endif

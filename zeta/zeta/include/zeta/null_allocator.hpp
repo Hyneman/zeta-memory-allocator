@@ -25,7 +25,6 @@
 #ifndef ZETA_NULL_ALLOCATOR_HPP
 #	define ZETA_NULL_ALLOCATOR_HPP
 
-#include <cstdlib>
 #include <cstddef>
 #include <cassert>
 
