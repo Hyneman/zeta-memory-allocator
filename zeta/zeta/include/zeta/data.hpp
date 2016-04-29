@@ -27,6 +27,8 @@
 
 #include <cstddef>
 #include <utility>
+#include <ostream>
+#include <iomanip>
 
 namespace zeta
 {
@@ -105,6 +107,14 @@ namespace zeta
 				return this->valid();
 			}
 	};
+
+	inline std::ostream& operator<<(std::ostream& os, const data& d)
+	{
+		std::ios::fmtflags flags(os.flags());
+		os << std::hex << d.ptr << std::dec << " (" << d.size << ")";
+		os.flags(flags);
+		return os;
+	}
 }
 
 #endif
