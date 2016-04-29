@@ -18,15 +18,16 @@
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/composition_tests/zeta_singleton_allocator_test.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta_tests/composition_tests/CMakeLists.txt" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/null_allocator.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/stack_allocator.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/memory.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/data.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/null_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/memory.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/throw_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/singleton_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/allocation_exception.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/default_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/fallback_allocator.hpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/throw_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/segregator_allocator.hpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/stack_allocator.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/include/zeta/defaults.hpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/zeta/CMakeLists.txt" isTestSource="false" />
     </content>
