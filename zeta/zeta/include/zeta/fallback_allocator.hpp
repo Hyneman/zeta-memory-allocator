@@ -31,7 +31,7 @@
 namespace zeta
 {
 	template<typename Primary, typename Secondary>
-	class fallback_allocator : public Primary, public Secondary
+	class fallback_allocator : private Primary, private Secondary
 	{
 		public:
 			data allocate(std::size_t size)
